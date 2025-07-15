@@ -114,6 +114,7 @@ RUN \
 
 # Copy root filesystem
 COPY rootfs /
+RUN chmod -R +x /etc/s6-overlay/s6-rc.d/
 
 # Build arguments
 ARG BUILD_ARCH
@@ -143,5 +144,3 @@ LABEL \
     org.opencontainers.image.created=${BUILD_DATE} \
     org.opencontainers.image.revision=${BUILD_REF} \
     org.opencontainers.image.version=${BUILD_VERSION}
-
-RUN chmod -R +x /etc/s6-overlay/s6-rc.d/
